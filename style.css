@@ -352,7 +352,8 @@ footer {
 /* Responsive Cards Layout */
 @media (min-width: 768px) {
   #projects .card,
-  #experience .card {
+  #experience .card,
+  #contact .card {
     display: flex;
     flex-direction: row;
     gap: 2rem;
