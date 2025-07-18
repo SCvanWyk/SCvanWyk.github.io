@@ -13,6 +13,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -24,16 +25,49 @@
   </header>
 
   <main class="container">
-    <section id="about">
-      <div class="card fade-in">
-        <h2>About Me</h2>
-        <p>
-          I'm a versatile full stack developer with strengths in desktop applications, database design and network security. 
-          I have experience in system analysis, cloud solutions, and a solid IT infrastructure foundation. I'm eager to bring 
-          smart tech into agriculture using scalable, data-driven solutions.
-        </p>
-      </div>
+    <!--About me section with lists----------------------------------------->
+    <section id="about" class="fade-in">
+        <div class="card about-me">
+                <h2>About Me</h2>
+                <div class="about-flex">
+                    <img src="assets/me.jpg" alt="Schalk van Wyk" class="profile-pic" />
+
+                    <div class="intro-text">
+                        <p>Hey there! I'm Schalk — a curious, coffee-fueled dev who loves solving real-world problems with code. I build desktop tools, dabble in cloud stuff, and geek out over cybersecurity. 💻🌱</p>
+                        <p>Right now, I’m focusing on turning tech into tools that make life easier — especially in agriculture and education.</p>
+                    </div>
+                </div>
+
+            <div class="info-grid">
+                <div>
+                    <h3>💡 Fun Facts</h3>
+                    <ul>
+                    <li>I once debugged a C# app using sticky notes</li>
+                    <li>I name my projects after snacks</li>
+                    <li>I can't work without background music</li>
+                    </ul>
+            </div>
+            
+            <div>
+                <h3>🎯 Values</h3>
+                    <ul>
+                        <li>Build with empathy</li>
+                        <li>Stay curious</li>
+                        <li>Finish what you start</li>
+                    </ul>
+            </div>
+                <div>
+                <h3>🎮 Interests</h3>
+                    <ul>
+                        <li>Retro games & emulators</li>
+                        <li>Cybersecurity puzzles</li>
+                        <li>Minimal UI/UX design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
+
 
     <section id="projects">
       <div class="card fade-in">
@@ -42,27 +76,114 @@
       </div>
     </section>
 
-    <section id="experience">
-      <div class="card fade-in">
-        <h2>Experience</h2>
-        <div class="experience-entry">
-          <h3>Department of Employment and Labour</h3>
-          <p class="small">System Analysis and Design Practical (June 2024)</p>
-          <ul>
-            <li>Completed system analysis and design training</li>
-            <li>Contributed to the Compensation Fund Website</li>
-          </ul>
+    <!--Education and Roadmap------------------------------------------------------> 
+    <section id="education" class="fade-in">
+        <div class="card education-roadmap">
+            <h2>🎓 My Learning Journey</h2>
+
+            <div class="timeline">
+            <!-- Semester 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">📘</div>
+                        <button class="timeline-semester" onclick="toggleSemester(this)">
+                        Semester 1 – 2023
+                        </button>
+                        <div class="semester-content">
+                            <div class="module">
+                                <span>💻 Programming 101</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 78%">78%</div>
+                                </div>
+                        </div>
+
+                        <div class="module">
+                            <span🧠>🧠 Computer Architecture</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 74%">74%</div>
+                            </div>
+                        </div>
+
+                        <div class="module">
+                            <span>📐 Math for CS</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 81%">81%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semester 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot">📗</div>
+                        <button class="timeline-semester" onclick="toggleSemester(this)">Semester 2 – 2023</button>
+
+                        <div class="semester-content">
+                            <div class="module">
+                                <span>🛡️ Networks & Security</span>
+                                <div class="bar">
+                                    <div class="fill" style="width: 76%">76%</div>
+                                </div>
+                            </div>
+
+                        <div class="module">
+                            <span>🗃️ Databases</span>
+                            <div class="bar">
+                            <div class="fill" style="width: 83%">83%</div>
+                            </div>
+                        </div>
+
+                        <div class="module">
+                            <span>🌐 Web Development</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%">80%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="experience-entry">
-          <h3>Standard Bank</h3>
-          <p class="small">Cybersecurity Practical Training (June 2024)</p>
-          <ul>
-            <li>Exposure to Red Teaming, Threat Hunting, Automation</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
+<!-- -------------------------------------------------------------------------------------- -->
+
+<!-- Experience section ---------------------------------->
+<section id="experience" class="fade-in">
+    <div class="card experience-timeline">
+        <h2>🧑‍💻 Experience</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-dot">🏢</div>
+                <div class="timeline-content">
+                    <h3>Department of Employment and Labour</h3>
+                    <p class="small">System Analysis and Design Practical – June 2024</p>
+                    <ul>
+                        <li>✅ Completed hands-on system analysis & design training</li>
+                        <li>🌐 Contributed to the Compensation Fund Website</li>
+                        <li>🤝 Improved department functions and collaboration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot">🏦</div>
+                <div class="timeline-content">
+                    <h3>Standard Bank</h3>
+                    <p class="small">Cybersecurity Practical – June 2024</p>
+                    <ul>
+                        <li>🕵️‍♂️ Exposure to Red Teaming, Pen Testing, Threat Hunting</li>
+                        <li>⚙️ Worked on security automation in operations</li>
+                        <li>🧠 Sharpened analytical and communication skills</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!--------------------------------------------------->
     <section id="contact">
       <div class="card fade-in">
         <h2>Contact</h2>
@@ -92,5 +213,13 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
-</body>
+
+    <!--Collapsile semester script -->
+  <script> 
+    function toggleSemester(button) {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body >
 </html>
