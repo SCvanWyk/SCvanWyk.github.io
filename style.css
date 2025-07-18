@@ -1,0 +1,106 @@
+/* Reset & base font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f9f6;
+  color: #2e3d31;
+  line-height: 1.6;
+}
+
+a {
+  color: #4d7a57;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbeee1;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #2f4f3d;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+  background-color: #eef5f0;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  color: #3a5840;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: #6a8c75;
+}
+
+/* Sections */
+section {
+  margin-top: 3rem;
+}
+
+h2 {
+  color: #3d6b51;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d1e3d5;
+  padding-bottom: 0.3rem;
+}
+
+.experience-entry {
+  margin-bottom: 1.5rem;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #778f7b;
+}
+
+ul {
+  margin-top: 0.5rem;
+  padding-left: 1.3rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  background-color: #dbeee1;
+  color: #4d6657;
+  font-size: 0.9rem;
+}
