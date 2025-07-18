@@ -1,4 +1,4 @@
-/* Reset & base font */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
@@ -12,13 +12,14 @@ body {
   line-height: 1.6;
 }
 
+/* Links */
 a {
   color: #4d7a57;
   text-decoration: none;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 960px;
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
@@ -59,7 +60,7 @@ a {
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: #3a5840;
 }
 
@@ -68,19 +69,32 @@ a {
   color: #6a8c75;
 }
 
-/* Sections */
-section {
-  margin-top: 3rem;
+/* Card Style */
+.card {
+  background-color: #e5f2ea;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #c6e1d3;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* Section Titles */
 h2 {
   color: #3d6b51;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #d1e3d5;
+  border-bottom: 1px solid #cce2d6;
   padding-bottom: 0.3rem;
 }
 
+/* Experience Entries */
 .experience-entry {
   margin-bottom: 1.5rem;
 }
@@ -103,4 +117,31 @@ footer {
   background-color: #dbeee1;
   color: #4d6657;
   font-size: 0.9rem;
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Cards Layout */
+@media (min-width: 768px) {
+  #projects .card,
+  #experience .card {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .experience-entry {
+    flex: 1 1 45%;
+  }
 }

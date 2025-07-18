@@ -25,48 +25,72 @@
 
   <main class="container">
     <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a versatile full stack developer with strengths in desktop applications, database design and network security. 
-        I have experience in system analysis, cloud solutions, and a solid IT infrastructure foundation. I'm eager to bring 
-        smart tech into agriculture using scalable, data-driven solutions.
-      </p>
+      <div class="card fade-in">
+        <h2>About Me</h2>
+        <p>
+          I'm a versatile full stack developer with strengths in desktop applications, database design and network security. 
+          I have experience in system analysis, cloud solutions, and a solid IT infrastructure foundation. I'm eager to bring 
+          smart tech into agriculture using scalable, data-driven solutions.
+        </p>
+      </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <p>🚧 This section is under construction. Soon you'll see my latest work, including personal and collaborative projects.</p>
+      <div class="card fade-in">
+        <h2>Projects</h2>
+        <p>🚧 This section is under construction. Soon you'll see my latest work, including personal and collaborative projects.</p>
+      </div>
     </section>
 
     <section id="experience">
-      <h2>Experience</h2>
-      <div class="experience-entry">
-        <h3>Department of Employment and Labour</h3>
-        <p class="small">System Analysis and Design Practical (June 2024)</p>
-        <ul>
-          <li>Completed system analysis and design training</li>
-          <li>Contributed to the Compensation Fund Website</li>
-        </ul>
-      </div>
-      <div class="experience-entry">
-        <h3>Standard Bank</h3>
-        <p class="small">Cybersecurity Practical Training (June 2024)</p>
-        <ul>
-          <li>Exposure to Red Teaming, Threat Hunting, Automation</li>
-        </ul>
+      <div class="card fade-in">
+        <h2>Experience</h2>
+        <div class="experience-entry">
+          <h3>Department of Employment and Labour</h3>
+          <p class="small">System Analysis and Design Practical (June 2024)</p>
+          <ul>
+            <li>Completed system analysis and design training</li>
+            <li>Contributed to the Compensation Fund Website</li>
+          </ul>
+        </div>
+        <div class="experience-entry">
+          <h3>Standard Bank</h3>
+          <p class="small">Cybersecurity Practical Training (June 2024)</p>
+          <ul>
+            <li>Exposure to Red Teaming, Threat Hunting, Automation</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:schalkvanwyk08@gmail.com">schalkvanwyk08@gmail.com</a></p>
-      <p>Phone: +27 83 447 8841</p>
-      <p>Location: Potchefstroom, South Africa</p>
+      <div class="card fade-in">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:schalkvanwyk08@gmail.com">schalkvanwyk08@gmail.com</a></p>
+        <p>Phone: +27 83 447 8841</p>
+        <p>Location: Potchefstroom, South Africa</p>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Schalk van Wyk</p>
   </footer>
+
+  <script>
+    // Simple fade-in animation on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.1
+    };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
