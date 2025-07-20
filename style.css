@@ -248,7 +248,7 @@ footer {
 .education-roadmap {
   max-width: 700px;
   margin: 0 auto;
-  background: rgba(229, 233, 224, 0.9);
+  background: var(--accent);
   padding: 2rem;
   border-radius: 12px;
   color: var(--text-dark);
@@ -346,10 +346,22 @@ footer {
   transition: width 0.5s ease;
 }
 
+.education-roadmap::-webkit-scrollbar {
+  display: none;
+}
+
 #education .education-roadmap {
   position: relative;
   z-index: 2;
   background: rgba(229, 233, 224, 0.95);
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 #education::before {
@@ -367,12 +379,13 @@ footer {
 }
 
 .semester-card {
-  min-width: 300px;
+  min-width: 280px;
+  max-width: 320px;
   flex-shrink: 0;
   background-color: #f6f8f4;
   border: 1px solid #d1d8cd;
-  border-radius: 1.5rem;
-  padding: 1.25rem;
+  border-radius: 12px;
+  padding: 1em;
   scroll-snap-align: start;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
@@ -380,6 +393,7 @@ footer {
 
 .semester-card:hover {
   transform: translateY(-4px);
+  transform: scale(1.02);
 }
 
 .semester-card h3 {
@@ -482,3 +496,53 @@ footer {
   inset: 0;
   z-index: 0;
 }
+
+#page-container {
+  width: 90vw;          /* Take 90% of viewport width */
+  max-width: 900px;     /* But no wider than 900px on big screens */
+  margin: 0 auto;       /* Center horizontally */
+  padding-top: 80px;    /* Offset navbar height */
+  transition: max-width 0.3s ease; /* smooth resizing on window changes */
+}
+
+@media (max-width: 768px) {
+  #page-container {
+    width: 95vw;
+    padding-top: 70px; /* if you want to reduce navbar offset on mobile */
+  }
+}
+
+.scroll-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-block: 1rem;
+    padding-inline: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .scroll-card {
+    flex: 0 0 300px;
+    background-color: #e6f0e6; /* sage green tint */
+    color: #1a1a1a;
+    padding: 1.2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 2;
+  }
+
+  .scroll-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 600px) {
+    .scroll-card {
+      flex: 0 0 85%;
+    }
+  }

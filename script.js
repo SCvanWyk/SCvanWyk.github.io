@@ -1,27 +1,30 @@
 // Fade-in sections on scroll using IntersectionObserver
 
 document.addEventListener('DOMContentLoaded', () => {
-  const sections = document.querySelectorAll('.section .content');
+    // === Fade-in on scroll ===
+    const fadeInElements = document.querySelectorAll('.fade-in, .section .content');
+    const fadeObserverOptions = {
+      threshold: 0.15,
+    };
 
-  const observerOptions = {
-    threshold: 0.15,
-  };
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, fadeObserverOptions);
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        obs.unobserve(entry.target);
-      }
+    fadeInElements.forEach(el => fadeObserver.observe(el));
+
+    // === Collapsible semester toggles ===
+    const toggleButtons = document.querySelectorAll('.semester-toggle');
+
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.classList.toggle('open');
+      });
     });
-  }, observerOptions);
-
-  sections.forEach(section => observer.observe(section));
-});
-
-
-// Collapsible semester toggle
-function toggleSemester(button) {
-  const semesterContent = button.nextElementSibling;
-  semesterContent.classList.toggle('open');
-}
+  });
