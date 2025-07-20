@@ -1,343 +1,172 @@
-/* Base Reset */
+:root {
+  --accent: #78866b;
+  --background-light: #deebd2;
+  --text-dark: #2f342b;
+  --shadow-dark: rgba(0, 0, 0, 0.15);
+}
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+body, html {
+  height: 100%;
   font-family: 'Inter', sans-serif;
-  background-color: #f5f9f6;
-  color: #2e3d31;
-  line-height: 1.6;
+  scroll-behavior: smooth;
+  color: var(--text-dark);
+  background-color: var(--background-light);
 }
 
-/* Links */
-a {
-  color: #4d7a57;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-
-/* Navigation */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(219, 238, 225, 0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #dbeee1;
   padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  z-index: 999;
+  box-shadow: 0 2px 5px var(--shadow-dark);
 }
 
 .logo {
   font-weight: 600;
   font-size: 1.2rem;
-  color: #2f4f3d;
+  color: var(--accent);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  color: var(--text-dark);
 }
 
 .nav-links li a {
   font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-/* Hero */
-.hero {
+.nav-links li a:hover {
+  color: var(--accent);
+}
+
+/* Each full-screen section */
+.section {
+  min-height: 100vh;
+  padding-top: 80px; /* space for fixed navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 4rem 1rem 2rem;
-  background-color: #eef5f0;
+  color: white;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.hero h1 {
-  font-size: 2.4rem;
-  color: #3a5840;
+/* Background images for each section */
+#home {
+  background-image: url('assets/Landing_Page.jpg');
+}
+
+#about {
+  background-image: url('assets/Page-1.jpg');
+}
+
+#projects {
+  background-image: url('assets/Page_2.jpg');
+}
+
+#experience {
+  background-image: url('assets/Page 3.jpg'); /* Fix space escaping */
+}
+
+#education {
+  background-image: url('assets/Page_4.jpg');
+}
+
+/* Overlay for readability */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  background: rgba(193,208,181);
+  padding: 2rem;
+  border-radius: 12px;
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px var(--shadow-dark);
+  border: 1px solid var(--accent);
+}
+
+#home .content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  background: none; /* Remove card background */
+  padding: 0 4rem;
+  border-radius: 0;
+  color: white;
+  box-shadow: none;
+  text-align: left;
+  border: none;
+}
+
+/* Hero Text */
+#home .content h1 {
+  font-size: 7vw; /* Scales responsively */
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+#home .subtitle {
+  font-size: 1.5rem;
+  max-width: 600px;
+  color: #dbeee1;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 
 .subtitle {
-  margin-top: 0.5rem;
-  color: #6a8c75;
+  font-size: 1.4rem;
+  color: #dbeee1;
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
 
-/* About me Section -----------------------------------------------------------*/
-.about-me h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #355c48;
-}
-
-.about-flex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #c6e1d3;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease;
-}
-
-.profile-pic:hover {
-  transform: rotate(-2deg) scale(1.05);
-}
-
-.intro-text {
-  max-width: 600px;
-  text-align: center;
-  font-size: 1.1rem;
-  color: #3a5840;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  text-align: center;
-}
-
-.info-grid h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #4d7a57;
-}
-
-.info-grid ul {
-  list-style: none;
-  padding: 0;
-  font-size: 1rem;
-  color: #2e3d31;
-}
-
-.info-grid li {
-  margin-bottom: 0.5rem;
-  position: relative;
-}
-
-.info-grid li::before {
-  content: '•';
-  color: #6bb88e;
-  font-weight: bold;
-  display: inline-block;
-  margin-right: 0.5rem;
-}
-/*----------------------------------------------------------------------------------------------------*/
-
-/*Education section ---------------------------------------------------- */
-/* Collapsible Semester Button */
-.timeline-semester {
-  background-color: #e5f2ea;
-  border: none;
-  padding: 0.8rem 1rem;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  text-align: left;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #355c48;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-  transition: background-color 0.3s ease;
-}
-
-.timeline-semester:hover {
-  background-color: #d0e6d9;
-}
-
-.semester-content {
-  display: none;
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #f7fbf9;
-  border-left: 3px solid #b8d8c3;
-  border-radius: 6px;
-}
-
-/* Module Bars */
-.module {
+/* Cards for other sections */
+.card h2 {
   margin-bottom: 1rem;
-}
-
-.module span {
-  font-weight: 500;
-  display: block;
-  margin-bottom: 0.4rem;
-  color: #2e3d31;
-}
-
-.bar {
-  background-color: #e0efe5;
-  height: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
-}
-
-.fill {
-  height: 100%;
-  background-color: #6bb88e;
-  color: #ffffff;
-  text-align: right;
-  padding-right: 8px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  line-height: 20px;
-  border-radius: 10px;
-  transition: width 0.6s ease;
-}
-
-/*------------------------------------------------------------------------------------------*/
-/* Experience Timeline Styles (shared with Education) */
-
-.experience-timeline h2 {
-  text-align: center;
   font-size: 2rem;
-  color: #355c48;
-  margin-bottom: 2rem;
-}
-
-.timeline {
-  position: relative;
-  padding-left: 2rem;
-  border-left: 3px solid #cce2d6;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 2rem;
-  padding-left: 1.5rem;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -22px;
-  top: 0;
-  background-color: #e5f2ea;
-  color: #3d6b51;
-  font-size: 1.2rem;
-  padding: 0.4rem;
-  border-radius: 50%;
-  border: 2px solid #c6e1d3;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  flex-shrink: 0;
-}
-
-.timeline-content h3 {
-  margin-bottom: 0.2rem;
-  font-size: 1.2rem;
-  color: #2f4f3d;
-}
-
-.timeline-content p.small {
-  font-size: 0.9rem;
-  color: #5f7d6d;
-  margin-bottom: 0.6rem;
-}
-
-.timeline-content ul {
-  padding-left: 1.2rem;
-}
-
-.timeline-content li {
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-  color: #3a5840;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .timeline {
-    padding-left: 1rem;
-    border-left: 2px solid #cce2d6;
-  }
-
-  .timeline-dot {
-    left: -16px;
-  }
-}
-
-/* Responsive stack */
-@media (min-width: 768px) {
-  .about-flex {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .intro-text {
-    text-align: left;
-  }
-}
-
-
-/* Card Style */
-.card {
-  background-color: #e5f2ea;
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid #c6e1d3;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-}
-
-/* Section Titles */
-h2 {
-  color: #3d6b51;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #cce2d6;
-  padding-bottom: 0.3rem;
-}
-
-/* Experience Entries */
-.experience-entry {
-  margin-bottom: 1.5rem;
-}
-
-.small {
-  font-size: 0.9rem;
-  color: #778f7b;
-}
-
-ul {
-  margin-top: 0.5rem;
-  padding-left: 1.3rem;
+  color: var(--accent);
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 2rem 1rem;
-  margin-top: 4rem;
-  background-color: #dbeee1;
-  color: #4d6657;
+  background-color: var(--accent);
+  color: white;
   font-size: 0.9rem;
 }
 
-/* Animation Classes */
+/* Fade-in animation */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -349,18 +178,307 @@ footer {
   transform: translateY(0);
 }
 
-/* Responsive Cards Layout */
-@media (min-width: 768px) {
-  #projects .card,
-  #experience .card,
-  #contact .card {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    flex-wrap: wrap;
+/* Responsive nav on small screens */
+@media(max-width: 600px) {
+  .nav-links {
+    gap: 1rem;
   }
 
-  .experience-entry {
-    flex: 1 1 45%;
+  #home .content h1 {
+    font-size: 2rem;
   }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* About Section Layout */
+.about-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.intro-text {
+  max-width: 600px;
+  font-size: 1rem;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* Info Grid Styles */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.info-grid h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.info-grid ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: var(--text-dark);
+}
+
+/* Three columns on wider screens */
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Education Section */
+.education-roadmap {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(229, 233, 224, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px var(--shadow-dark);
+}
+
+.timeline {
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 0;
+  background-color: var(--accent);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.timeline-semester {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.8rem;
+  text-align: left;
+  width: 100%;
+}
+
+.timeline-semester:hover {
+  text-decoration: underline;
+}
+
+.semester-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  margin-left: 0.5rem;
+}
+
+.semester-content.open {
+  max-height: 1000px; /* large enough to show content */
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.module {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.module span {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.bar {
+  height: 10px;
+  background-color: #e2e8dc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.fill {
+  height: 100%;
+  background-color: var(--accent);
+  text-align: right;
+  padding-right: 4px;
+  color: white;
+  font-size: 0.75rem;
+  line-height: 10px;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.5s ease;
+}
+
+#education .education-roadmap {
+  position: relative;
+  z-index: 2;
+  background: rgba(229, 233, 224, 0.95);
+}
+
+#education::before {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollable semester cards */
+.semester-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+  margin-top: -0.5rem;
+}
+
+.semester-card {
+  min-width: 300px;
+  flex-shrink: 0;
+  background-color: #f6f8f4;
+  border: 1px solid #d1d8cd;
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.semester-card:hover {
+  transform: translateY(-4px);
+}
+
+.semester-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #445c3c;
+}
+
+.average {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+  color: #3a4b35;
+}
+
+#education .card h2 {
+  margin-top: -1rem;
+}
+
+/* Experience Section */
+#experience {
+  color: var(--text-dark);
+  position: relative;
+}
+
+#experience::before {
+  background: rgba(0,0,0,0);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#experience .card.experience-timeline {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(229, 233, 224, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px var(--shadow-dark);
+  border: 1px solid var(--accent);
+  position: relative;
+  z-index: 2;
+}
+
+#experience .experience-timeline .timeline {
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+#experience .timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+#experience .timeline-dot {
+  background-color: var(--accent);
+  position: absolute;
+  left: -24px;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+#experience .timeline-content h3 {
+  margin-bottom: 0.3rem;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+#experience .timeline-content p.small {
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  color: var(--text-dark);
+}
+
+#experience .timeline-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+
+#experience.section::before, #education.section::before {
+  background: rgba(0,0,0,0);
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
